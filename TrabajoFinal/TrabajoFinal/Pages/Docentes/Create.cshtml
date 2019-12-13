@@ -1,0 +1,64 @@
+﻿@page
+@model TrabajoFinal.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Docente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Docente.estudianteID" class="control-label"></label>
+                <input asp-for="Docente.estudianteID" class="form-control" />
+                <span asp-validation-for="Docente.estudianteID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Docente.Nombres" class="control-label"></label>
+                <input asp-for="Docente.Nombres" class="form-control" />
+                <span asp-validation-for="Docente.Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Docente.Apellidos" class="control-label"></label>
+                <input asp-for="Docente.Apellidos" class="form-control" />
+                <span asp-validation-for="Docente.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Docente.Sexo" class="control-label"></label>
+                <input asp-for="Docente.Sexo" class="form-control" />
+                <span asp-validation-for="Docente.Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Docente.Direccion" class="control-label"></label>
+                <input asp-for="Docente.Direccion" class="form-control" />
+                <span asp-validation-for="Docente.Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Docente.Telefono" class="control-label"></label>
+                <input asp-for="Docente.Telefono" class="form-control" />
+                <span asp-validation-for="Docente.Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Docente.Cedula" class="control-label"></label>
+                <input asp-for="Docente.Cedula" class="form-control" />
+                <span asp-validation-for="Docente.Cedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
