@@ -1,0 +1,48 @@
+﻿@page
+@model TrabajoFinal.Pages.Pagos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pago[0].moduloID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pago[0].Monto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pago[0].Fecha_Pago)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pago) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.moduloID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Pago)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.pagoID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.pagoID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.pagoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
