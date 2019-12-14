@@ -17,6 +17,7 @@ namespace TrabajoFinal
 {
     public class Startup
     {
+        public const int RequiredLengthForPassword = 8;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -35,7 +36,7 @@ namespace TrabajoFinal
                 {
                     options.Lockout.MaxFailedAccessAttempts = 10;
 
-                    options.Password.RequiredLength = 8;
+                    options.Password.RequiredLength = RequiredLengthForPassword;
                     options.Password.RequiredUniqueChars = 4;
                     options.Password.RequireLowercase = true;
                     options.Password.RequireNonAlphanumeric = false;
@@ -43,10 +44,13 @@ namespace TrabajoFinal
 
                     options.User.RequireUniqueEmail = true;
                 })
-               
-                
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<MyErrorDescriber>();
+
             services.AddRazorPages();
+
 
             services.AddDbContext<TrabajoFinalContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TrabajoFinalContext")));
@@ -81,4 +85,18 @@ namespace TrabajoFinal
             });
         }
     }
+    public class MyErrorDescriber : IdentityErrorDescriber
+    {
+        public override IdentityError PasswordRequiresDigit()
+        {
+            return new IdentityError()
+            {
+                Code = nameof(PasswordRequiresDigit),
+                Description = "La ccontraseña deve contener numeros"
+            };
+        }
+    }
 }
+
+
+
