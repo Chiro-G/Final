@@ -31,7 +31,18 @@ namespace TrabajoFinal
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(
-                options => options.SignIn.RequireConfirmedAccount = true)
+                options =>
+                {
+                    options.Lockout.MaxFailedAccessAttempts = 10;
+
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequiredUniqueChars = 4;
+                    options.Password.RequireLowercase = true;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireUppercase = false;
+
+                    options.User.RequireUniqueEmail = true;
+                })
                
                 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
