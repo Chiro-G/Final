@@ -27,6 +27,8 @@ namespace TrabajoFinal.Pages.Pagos
         {
             if (id == null)
             {
+                ViewData["estudianteID"] = new SelectList(_context.Estudiantes, "estudianteID", "Nombres");
+                ViewData["moduloID"] = new SelectList(_context.Estudiantes, "moduloID", "Nombre");
                 return NotFound();
             }
 
@@ -45,6 +47,7 @@ namespace TrabajoFinal.Pages.Pagos
         {
             if (!ModelState.IsValid)
             {
+                
                 return Page();
             }
 

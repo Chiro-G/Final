@@ -21,6 +21,7 @@ namespace TrabajoFinal
 
         public IActionResult OnGet()
         {
+            ViewData["estudianteID"] = new SelectList(_context.Estudiantes, "estudianteID", "Nombres");
             return Page();
         }
 

@@ -15,8 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Docente.estudianteID" class="control-label"></label>
-                <input asp-for="Docente.estudianteID" class="form-control" />
-                <span asp-validation-for="Docente.estudianteID" class="text-danger"></span>
+           <select asp-for="Docente.estudianteID"class="form-control" asp-items="ViewBag.estudianteID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Docente.Nombres" class="control-label"></label>
@@ -30,8 +29,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Docente.Sexo" class="control-label"></label>
-                <input asp-for="Docente.Sexo" class="form-control" />
-                <span asp-validation-for="Docente.Sexo" class="text-danger"></span>
+                <select asp-for="Docente.Sexo" class="form-control" asp-items="ViewBag.Sexo">
+                    <option>Selecione el Genero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Docente.Direccion" class="control-label"></label>

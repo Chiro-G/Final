@@ -21,6 +21,8 @@ namespace TrabajoFinal.Pages.Pagos
 
         public IActionResult OnGet()
         {
+            ViewData["estudianteID"] = new SelectList(_context.Estudiantes, "estudianteID", "Nombres");
+            ViewData["moduloID"] = new SelectList(_context.Estudiantes, "moduloID", "Nombre");
             return Page();
         }
 
