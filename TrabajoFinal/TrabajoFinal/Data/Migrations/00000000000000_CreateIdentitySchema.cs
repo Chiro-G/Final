@@ -6,6 +6,8 @@ namespace TrabajoFinal.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
+
+
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
