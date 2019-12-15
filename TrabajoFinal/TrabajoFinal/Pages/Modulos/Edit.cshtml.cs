@@ -36,6 +36,7 @@ namespace TrabajoFinal.Pages.Modulos
             {
                 return NotFound();
             }
+            ViewData["cursoID"] = new SelectList(_context.Docentes, "cursoID", "Nombre");
             return Page();
         }
 

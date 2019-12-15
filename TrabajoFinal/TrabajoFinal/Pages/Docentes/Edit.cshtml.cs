@@ -27,6 +27,7 @@ namespace TrabajoFinal
         {
             if (id == null)
             {
+                
                 return NotFound();
             }
 
@@ -36,6 +37,7 @@ namespace TrabajoFinal
             {
                 return NotFound();
             }
+            ViewData["estudianteID"] = new SelectList(_context.Docentes, "estudianteID", "Nombres");
             return Page();
         }
 

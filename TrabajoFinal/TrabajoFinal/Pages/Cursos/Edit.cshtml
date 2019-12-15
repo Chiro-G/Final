@@ -16,8 +16,9 @@
             <input type="hidden" asp-for="Curso.cursoID" />
             <div class="form-group">
                 <label asp-for="Curso.docenteID" class="control-label"></label>
-                <input asp-for="Curso.docenteID" class="form-control" />
-                <span asp-validation-for="Curso.docenteID" class="text-danger"></span>
+
+                <select asp-for="Curso.docenteID" class="form-control" asp-items="ViewBag.docenteID"></select>
+
             </div>
             <div class="form-group">
                 <label asp-for="Curso.Nombre" class="control-label"></label>

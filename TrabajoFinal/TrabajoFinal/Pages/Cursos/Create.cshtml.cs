@@ -22,7 +22,6 @@ namespace TrabajoFinal.Pages.Cursos
         public IActionResult OnGet()
         {
             ViewData["docenteID"] = new SelectList(_context.Docentes, "docenteID", "Nombres");
-
             return Page();
         }
 

@@ -27,6 +27,8 @@ namespace TrabajoFinal.Pages.Cursos
         {
             if (id == null)
             {
+                
+                
                 return NotFound();
             }
 
@@ -36,7 +38,10 @@ namespace TrabajoFinal.Pages.Cursos
             {
                 return NotFound();
             }
+
+            ViewData["docenteID"] = new SelectList(_context.Docentes, "docenteID", "Nombres");
             return Page();
+        
         }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
@@ -58,6 +63,7 @@ namespace TrabajoFinal.Pages.Cursos
             {
                 if (!CursoExists(Curso.cursoID))
                 {
+                    ViewData["docenteID"] = new SelectList(_context.Docentes, "docenteID", "Nombres");
                     return NotFound();
                 }
                 else
